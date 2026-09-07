@@ -1,6 +1,10 @@
 {
   "type": "module",
   "scripts": {
-    "export": "node export.js"
+    "export": "node export-playwright.js",
+    "export:chrome": "node export.js"
+  },
+  "dependencies": {
+    "playwright": "^1.63.0"
   }
 }
