@@ -251,23 +251,14 @@ ul {
   border-right: 1px solid rgba(218, 179, 104, 0.16);
   background:
     linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.025),
-      transparent 22%,
-      transparent 78%,
-      rgba(255, 255, 255, 0.018)
-    ),
-    radial-gradient(
-      ellipse at 50% 0%,
-      rgba(244, 220, 155, 0.2),
-      transparent 19%
-    ),
-    linear-gradient(
       180deg,
-      rgba(31, 28, 24, 0.7),
-      rgba(6, 5, 4, 0.2) 58%,
-      rgba(0, 0, 0, 0.72)
-    );
+      rgba(0, 0, 0, 0.08),
+      transparent 56%,
+      rgba(0, 0, 0, 0.34)
+    ),
+    var(--chamber-image);
+  background-position: center;
+  background-size: cover;
 }
 
 .chamber::before {
@@ -300,8 +291,33 @@ ul {
   );
 }
 
+.threshold-self {
+  --chamber-image: url("threshold-self.jpg");
+}
+
+.threshold-source {
+  --chamber-image: url("threshold-source.jpg");
+}
+
+.threshold-reflection {
+  --chamber-image: url("threshold-reflection.jpg");
+}
+
+.threshold-illusion {
+  --chamber-image: url("threshold-illusion.jpg");
+}
+
+.threshold-witness {
+  --chamber-image: url("threshold-witness.jpg");
+}
+
+.threshold-advaita {
+  --chamber-image: url("threshold-advaita.jpg");
+}
+
 .floor-ring {
   position: absolute;
+  z-index: 2;
   left: 50%;
   bottom: 74px;
   width: 86px;
@@ -366,6 +382,16 @@ ul {
   transform: translateX(-50%);
   border: 1px solid rgba(232, 221, 198, 0.5);
   border-radius: 50%;
+}
+
+.self-figure,
+.source-orb,
+.reflection-orb,
+.reflection-ripple,
+.illusion-veil,
+.witness-eye,
+.advaita-field {
+  display: none;
 }
 
 .source-orb,
@@ -529,9 +555,10 @@ ul {
 }
 
 .animation-strip span {
+  position: relative;
   display: grid;
-  place-items: end center;
-  padding-bottom: 10px;
+  place-items: center;
+  overflow: hidden;
   border: 1px solid rgba(218, 179, 104, 0.14);
   background:
     radial-gradient(
@@ -541,11 +568,47 @@ ul {
     ),
     linear-gradient(180deg, transparent, rgba(218, 179, 104, 0.08));
   color: var(--gold);
+}
+
+.animation-strip b {
   font-family:
     "Noto Sans Kannada", "Kannada MN", "Kohinoor Kannada", sans-serif;
   font-size: 1.05rem;
-  writing-mode: vertical-rl;
-  text-orientation: upright;
+  font-weight: 300;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 14px rgba(218, 179, 104, 0.55);
+  transform: rotate(-90deg) scaleX(1.18);
+  transform-origin: center;
+  white-space: nowrap;
+  word-break: keep-all;
+}
+
+.animation-strip span::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  width: 1px;
+  height: 128px;
+  transform: translateX(-50%) rotate(90deg);
+  background: linear-gradient(
+    transparent,
+    rgba(243, 202, 111, 0.3),
+    transparent
+  );
+}
+
+.animation-strip span:nth-child(3) b,
+.animation-strip span:nth-child(6) b {
+  font-size: 0.86rem;
+  transform: rotate(-90deg) scaleX(1.12);
+}
+
+.animation-strip span:nth-child(4) b {
+  font-size: 0.92rem;
+  transform: rotate(-90deg) scaleX(1.08);
 }
 
 .animation-labels,
